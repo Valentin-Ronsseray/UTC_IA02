@@ -1,3 +1,4 @@
+#Cours #IA02 #P24
 # IA02 : Logique propositionnelle ^toc
 
 - [[#IA02 : Logique propositionnelle ^toc|IA02 : Logique propositionnelle]]
@@ -31,16 +32,6 @@
 				- [[#Définition (*modèle et contre-modèle*)|Définition (*modèle et contre-modèle*)]]
 				- [[#Définition|Définition]]
 		- [[#III.3. Calculer la validité d'une formule|III.3. Calculer la validité d'une formule]]
-#Cours #IA02 #P24
-- [[#IA02 : Logique propositionnelle ^toc|IA02 : Logique propositionnelle]]
-	- [[#I. Introduction|I. Introduction]]
-		- [[#I.1. But de la logique|I.1. But de la logique]]
-			- [[#I.1.1. Période classique (Aristote, Platon, les péripatéticiens etc)|I.1.1. Période classique (Aristote, Platon, les péripatéticiens etc)]]
-			- [[#I.1.2. Période moderne|I.1.2. Période moderne]]
-			- [[#I.1.3. Les trois formes de raisonnements|I.1.3. Les trois formes de raisonnements]]
-					- [[#Exemples :|Exemples :]]
-			- [[#I.1.4. Applications|I.1.4. Applications]]
-			- [[#I.1.5. La logique propositionnelle|I.1.5. La logique propositionnelle]]
 
 ## I. Introduction
 
