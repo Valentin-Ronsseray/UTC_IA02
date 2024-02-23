@@ -102,8 +102,7 @@ Argument fallacieux: l'ISF engendre l'évasion fiscale, donc il suffit de suppri
 
 ###### Remarque
 - Les connecteurs $\neg$ et $\vee$ forment un système complet
-- 
-  > [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=10&selection=9,9,9,15&color=yellow|IA02 _ Logique Propositionnelle, page 10]]
+- > [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=10&selection=9,9,9,15&color=yellow|IA02 _ Logique Propositionnelle, page 10]]
 > > arité 
 > 
 > L'*arité* d'un connecteur correspond au nombre d'arguments que l'on peut associer au connecteur.
@@ -131,8 +130,7 @@ Sous la forme d'un arbre binaire ordonné
 > [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=13&selection=20,0,29,1&color=yellow|IA02 _ Logique Propositionnelle, page 13]]
 > > $\neg a \vee b \to c$
 > 
-> 
-![[diagram-20240221.svg#invert_B]]
+> ![[diagram-20240221.svg#invert_B]]
 
 
 > [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=13&selection=12,0,16,17|IA02 _ Logique Propositionnelle, page 13]]
