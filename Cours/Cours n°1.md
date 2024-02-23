@@ -19,16 +19,16 @@
 		- [[#II.4. Représentation sous formes de graphes|II.4. Représentation sous formes de graphes]]
 					- [[#Exemple|Exemple]]
 					- [[#Exemple|Exemple]]
-					- [[#Note|Note]]
+					- [[#Note manuscrite|Note manuscrite]]
 	- [[#III. Sémantique|III. Sémantique]]
 		- [[#III.1. Interprétation|III.1. Interprétation]]
 				- [[#Définition (*Interprétation*)|Définition (*Interprétation*)]]
 					- [[#Remarque|Remarque]]
-					- [[#Note|Note]]
+					- [[#Note manuscrite|Note manuscrite]]
 		- [[#III.2. Valuation|III.2. Valuation]]
 				- [[#Définition (*valuation*)|Définition (*valuation*)]]
 					- [[#Remarque|Remarque]]
-					- [[#Note|Note]]
+					- [[#Note manuscrite|Note manuscrite]]
 				- [[#Définition (*modèle et contre-modèle*)|Définition (*modèle et contre-modèle*)]]
 				- [[#Définition|Définition]]
 		- [[#III.3. Calculer la validité d'une formule|III.3. Calculer la validité d'une formule]]
@@ -96,7 +96,7 @@ Argument fallacieux: l'ISF engendre l'évasion fiscale, donc il suffit de suppri
 ## II. Le langage
 
 - $V_{S} = \{ a, b, c, \dots, p,q, \dots \}$
-- $V_{C} = \{ \wedge, \to, \leftrightarrow, \dots \}$ ensemble de connecteurs (reps. d'arité 1, 2, 2, 2, 2, 0, 0)
+- $V_{C} = \{\neg,  \wedge, \vee \to, \leftrightarrow, \bot, \top \}$ ensemble de connecteurs (reps. d'arité 1, 2, 2, 2, 2, 0, 0)
 
 ###### Remarque
 Les connecteurs $\neg$ et $\vee$ forment un système complet
@@ -124,15 +124,15 @@ Sous la forme d'un arbre binaire ordonné
 $$
 \neg a \vee b \to c
 $$
-
+![[diagram-20240221.svg#invert_B]]
 On peut représenter une formule sous forme de DAG (graphe dirigé acyclique) pour représenter une formule de façon plus concise/compacte...
 
 ###### Exemple
 $$
 a \vee b \to c \wedge (a \vee b)
 $$
-
-###### Note
+![[diagram-20240221 (2).svg#invert_B]]
+###### Note manuscrite
 
 ## III. Sémantique
 
@@ -152,31 +152,31 @@ Une *interprétation* $\omega$ est une application de $V_{S}$ dans $\{ V,S \}$ q
 - Tous les éléments dans l'ensemble de départ ont une valeur par l'application.
 - Si $|V_{S}| = n$, alors il y a $2^{n}$ interprétations.
 
-###### Note 
+###### Note manuscrite
 
 ### III.2. Valuation
 
 ##### Définition (*valuation*)
 
-Soit $\varphi$ une formule bien formée et $\omega \in \Omega$, la *valuation* de $\varphi$ pour $\omega$ ...
+Soit $\varphi$ une formule bien formée et $\omega \in \Omega$, la *valuation* de $\varphi$ pour $\omega$... 
 
 ###### Remarque
 - $A \to B$ équivaut à $\neg A \vee B$.
 - On est sûr que la valuation se termine car à chaque étape un connecteur est résolu.
 
-###### Note
+###### Note manuscrite
 
 ##### Définition (*modèle et contre-modèle*)
 
-- $\omega$ satisfait $\varphi$, noté XXX ssi $Val(\varphi), \omega = V$. On dit que $\omega$ est un *modèle* de $\varphi$.
+- $\omega$ satisfait $\varphi$, noté $\omega \models \varphi$ ssi $Val(\varphi, \omega) = V$. On dit que $\omega$ est un *modèle* de $\varphi$.
 
 ##### Définition
 
 Une formule propositionnelle $\varphi$ est dite :
 
-- valide ...
+- valide... 
 - contradictoire
 - satisfiable
-- contigente
+- contingente
 
 ### III.3. Calculer la validité d'une formule
