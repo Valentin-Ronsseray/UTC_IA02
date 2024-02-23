@@ -11,13 +11,13 @@
 			- [[#I.1.4. Applications|I.1.4. Applications]]
 			- [[#I.1.5. La logique propositionnelle|I.1.5. La logique propositionnelle]]
 	- [[#II. Le langage|II. Le langage]]
+		- [[#II.1. Variables propositionnelles et correcteurs|II.1. Variables propositionnelles et correcteurs]]
 					- [[#Remarque|Remarque]]
 				- [[#Définition (*formules propositionnelles bien formées*)|Définition (*formules propositionnelles bien formées*)]]
 		- [[#II.2. Priorité des opérateur|II.2. Priorité des opérateur]]
 		- [[#II.3. Littéral|II.3. Littéral]]
 				- [[#Définition (*littéral*)|Définition (*littéral*)]]
 		- [[#II.4. Représentation sous formes de graphes|II.4. Représentation sous formes de graphes]]
-					- [[#Exemple|Exemple]]
 					- [[#Exemple|Exemple]]
 					- [[#Note manuscrite|Note manuscrite]]
 	- [[#III. Sémantique|III. Sémantique]]
@@ -95,11 +95,18 @@ Argument fallacieux: l'ISF engendre l'évasion fiscale, donc il suffit de suppri
 
 ## II. Le langage
 
+### II.1. Variables propositionnelles et correcteurs
+
 - $V_{S} = \{ a, b, c, \dots, p,q, \dots \}$
-- $V_{C} = \{\neg,  \wedge, \vee \to, \leftrightarrow, \bot, \top \}$ ensemble de connecteurs (reps. d'arité 1, 2, 2, 2, 2, 0, 0)
+- $V_{C} = \{\neg,  \wedge, \vee \to, \leftrightarrow, \bot, \top \}$
 
 ###### Remarque
-Les connecteurs $\neg$ et $\vee$ forment un système complet
+- Les connecteurs $\neg$ et $\vee$ forment un système complet
+- 
+  > [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=10&selection=9,9,9,15&color=yellow|IA02 _ Logique Propositionnelle, page 10]]
+> > arité 
+> 
+> L'*arité* d'un connecteur correspond au nombre d'arguments que l'on peut associer au connecteur.
 
 ##### Définition (*formules propositionnelles bien formées*)
 
@@ -121,17 +128,19 @@ Sous la forme d'un arbre binaire ordonné
 - Les autres correspondent à des connecteurs
 
 ###### Exemple
-$$
-\neg a \vee b \to c
-$$
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=13&selection=20,0,29,1&color=yellow|IA02 _ Logique Propositionnelle, page 13]]
+> > $\neg a \vee b \to c$
+> 
+> 
 ![[diagram-20240221.svg#invert_B]]
-On peut représenter une formule sous forme de DAG (graphe dirigé acyclique) pour représenter une formule de façon plus concise/compacte...
 
-###### Exemple
-$$
-a \vee b \to c \wedge (a \vee b)
-$$
-![[diagram-20240221 (2).svg#invert_B]]
+
+> [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=13&selection=12,0,16,17|IA02 _ Logique Propositionnelle, page 13]]
+> > $a \vee b \to c \wedge (a \vee b)$
+> > On peut représenter une formule sous forme de DAG (graphe dirigé acyclique) pour représenter une formule de façon plus concise/compacte…
+> 
+> ![[diagram-20240223.svg#invert_B]]
+
 ###### Note manuscrite
 
 ## III. Sémantique
@@ -168,15 +177,25 @@ Soit $\varphi$ une formule bien formée et $\omega \in \Omega$, la *valuation* d
 
 ##### Définition (*modèle et contre-modèle*)
 
-- $\omega$ satisfait $\varphi$, noté $\omega \models \varphi$ ssi $Val(\varphi, \omega) = V$. On dit que $\omega$ est un *modèle* de $\varphi$.
+Soit $\varphi$ une formule bien formée et $\omega\in\Omega$, la valuation de $\varphi$ pour $\omega$ (notée $Val(\varphi,\omega))$ est telle que :
+- si $\varphi$ est une variable propositionnelle, alors $Val(\varphi,\omega)=\omega(\varphi)$ ;
+- $Val(\top,\omega)=V$ et $Val(\bot,\omega)=F;$
+- si $\varphi$ est de la forme $\lnot A$ (resp. $A\land B,A\lor B,A\rightarrow B,A\leftrightarrow B)$, alors appliquer récursivement la table de vérité suivante.
+
+| **$A$** | **$B$** | **$\neg A$** | **$A \wedge B$** | **$A \vee B$** | **$A \to B$** | **$A\leftrightarrow B$** |
+| ------- | ------- | ------------ | ---------------- | -------------- | ------------- | ------------------------ |
+| $F$     | $F$     | $V$          | $F$              | $F$            | $V$           | $V$                      |
+| $F$     | $V$     | $V$          | $F$              | $V$            | $V$           | $F$                      |
+| $V$     | $F$     | $F$          | $F$              | $V$            | $F$           | $F$                      |
+| $V$     | $V$     | $F$          | $V$              | $V$            | $V$           | $V$                      |
 
 ##### Définition
-
 Une formule propositionnelle $\varphi$ est dite :
+- *valide* (noté $\models\varphi$ ) ssi pour toute interprétation $\omega\in\Omega$ on a $\omega\models\varphi$. Dans ce cas $\varphi$ est également appelé *tautologie* ;
+- *contradictoire* ssi pour toute interprétation $\omega\in\Omega$ on a $\omega\nvDash\varphi$ ; 
+- *satisfiable* ssi elle n'est pas contradictoire ;
+- *contingente* ssi il existe $\omega\in\Omega$ tel que $\omega\models\varphi$ et il existe $\omega^{\prime}\in\Omega$ tel que $\omega^{\prime}\not\models\varphi.$
 
-- valide... 
-- contradictoire
-- satisfiable
-- contingente
 
 ### III.3. Calculer la validité d'une formule
+
