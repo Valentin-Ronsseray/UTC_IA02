@@ -19,19 +19,21 @@
 				- [[#Définition (*littéral*)|Définition (*littéral*)]]
 		- [[#II.4. Représentation sous formes de graphes|II.4. Représentation sous formes de graphes]]
 					- [[#Exemple|Exemple]]
-					- [[#Note manuscrite|Note manuscrite]]
 	- [[#III. Sémantique|III. Sémantique]]
 		- [[#III.1. Interprétation|III.1. Interprétation]]
 				- [[#Définition (*Interprétation*)|Définition (*Interprétation*)]]
 					- [[#Remarque|Remarque]]
-					- [[#Note manuscrite|Note manuscrite]]
 		- [[#III.2. Valuation|III.2. Valuation]]
 				- [[#Définition (*valuation*)|Définition (*valuation*)]]
 					- [[#Remarque|Remarque]]
-					- [[#Note manuscrite|Note manuscrite]]
 				- [[#Définition (*modèle et contre-modèle*)|Définition (*modèle et contre-modèle*)]]
 				- [[#Définition|Définition]]
+					- [[#Exemple|Exemple]]
 		- [[#III.3. Calculer la validité d'une formule|III.3. Calculer la validité d'une formule]]
+			- [[#III.3.1. Algorithme de Quine|III.3.1. Algorithme de Quine]]
+			- [[#III.3.2. Absurde|III.3.2. Absurde]]
+		- [[#III.4. Conséquence logique|III.4. Conséquence logique]]
+					- [[#Exemple|Exemple]]
 
 ## I. Introduction
 
@@ -102,7 +104,8 @@ Argument fallacieux: l'ISF engendre l'évasion fiscale, donc il suffit de suppri
 
 ###### Remarque
 - Les connecteurs $\neg$ et $\vee$ forment un système complet
-- > [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=10&selection=9,9,9,15&color=yellow|IA02 _ Logique Propositionnelle, page 10]]
+- 
+  > [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=10&selection=9,9,9,15&color=yellow|IA02 _ Logique Propositionnelle, page 10]]
 > > arité 
 > 
 > L'*arité* d'un connecteur correspond au nombre d'arguments que l'on peut associer au connecteur.
@@ -132,14 +135,11 @@ Sous la forme d'un arbre binaire ordonné
 > 
 > ![[diagram-20240221.svg#invert_B]]
 
-
 > [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=13&selection=12,0,16,17|IA02 _ Logique Propositionnelle, page 13]]
 > > $a \vee b \to c \wedge (a \vee b)$
 > > On peut représenter une formule sous forme de DAG (graphe dirigé acyclique) pour représenter une formule de façon plus concise/compacte…
 > 
 > ![[diagram-20240223.svg#invert_B]]
-
-###### Note manuscrite
 
 ## III. Sémantique
 
@@ -158,24 +158,13 @@ Une *interprétation* $\omega$ est une application de $V_{S}$ dans $\{ V,S \}$ q
 ###### Remarque
 - Tous les éléments dans l'ensemble de départ ont une valeur par l'application.
 - Si $|V_{S}| = n$, alors il y a $2^{n}$ interprétations.
-
-###### Note manuscrite
+![[InsertionObsidian_annoté.png]]
 
 ### III.2. Valuation
 
 ##### Définition (*valuation*)
 
-Soit $\varphi$ une formule bien formée et $\omega \in \Omega$, la *valuation* de $\varphi$ pour $\omega$... 
-
-###### Remarque
-- $A \to B$ équivaut à $\neg A \vee B$.
-- On est sûr que la valuation se termine car à chaque étape un connecteur est résolu.
-
-###### Note manuscrite
-
-##### Définition (*modèle et contre-modèle*)
-
-Soit $\varphi$ une formule bien formée et $\omega\in\Omega$, la valuation de $\varphi$ pour $\omega$ (notée $Val(\varphi,\omega))$ est telle que :
+Soit $\varphi$ une formule bien formée et $\omega\in\Omega$, la *valuation* de $\varphi$ pour $\omega$ (notée $Val(\varphi,\omega))$ est telle que :
 - si $\varphi$ est une variable propositionnelle, alors $Val(\varphi,\omega)=\omega(\varphi)$ ;
 - $Val(\top,\omega)=V$ et $Val(\bot,\omega)=F;$
 - si $\varphi$ est de la forme $\lnot A$ (resp. $A\land B,A\lor B,A\rightarrow B,A\leftrightarrow B)$, alors appliquer récursivement la table de vérité suivante.
@@ -187,6 +176,23 @@ Soit $\varphi$ une formule bien formée et $\omega\in\Omega$, la valuation de $\
 | $V$     | $F$     | $F$          | $F$              | $V$            | $F$           | $F$                      |
 | $V$     | $V$     | $F$          | $V$              | $V$            | $V$           | $V$                      |
 
+###### Remarque
+- $A \to B$ équivaut à $\neg A \vee B$.
+- On est sûr que la valuation se termine car à chaque étape un connecteur est résolu.
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=17&selection=4,0,13,1&color=yellow|IA02 _ Logique Propositionnelle, page 17]]
+> > ω = {a, b, ¬c}
+> 
+> $$ \begin{cases} \omega(a) = \omega(b) = V  \\ \omega(c) = F \end{cases}$$
+
+##### Définition (*modèle et contre-modèle*)
+- $\omega$ satisfait $\varphi$,noté $\omega\models\varphi$ ssi $Val(\varphi,\omega)=V$. On dit alors que $\omega$ est un modèle de $\varphi.$
+- L'ensemble des modèles de $\varphi$ est noté $Mod(\varphi)$ :
+$$
+Mod(\varphi)=\{\omega\in\Omega:\omega\models\varphi\}
+$$
+- $\omega$ falsifie $\varphi$, noté $\omega\nvDash\varphi$ ssi $Val(\varphi,\omega)=F$. On dit alors que $\omega$ est un contremodèle de $\varphi.$
+
 ##### Définition
 Une formule propositionnelle $\varphi$ est dite :
 - *valide* (noté $\models\varphi$ ) ssi pour toute interprétation $\omega\in\Omega$ on a $\omega\models\varphi$. Dans ce cas $\varphi$ est également appelé *tautologie* ;
@@ -194,6 +200,73 @@ Une formule propositionnelle $\varphi$ est dite :
 - *satisfiable* ssi elle n'est pas contradictoire ;
 - *contingente* ssi il existe $\omega\in\Omega$ tel que $\omega\models\varphi$ et il existe $\omega^{\prime}\in\Omega$ tel que $\omega^{\prime}\not\models\varphi.$
 
+###### Exemple
+Les formules suivantes sont des tautologies
+- $p \to p$
+- $p \vee \neg P$
+- $\neg (\neg p \wedge p)$
+- $p \wedge q \to q$
+
 
 ### III.3. Calculer la validité d'une formule
+
+#### III.3.1. Algorithme de Quine
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=20&selection=22,0,22,16&color=yellow|IA02 _ Logique Propositionnelle, page 20]]
+> > (règle de Morgan
+> 
+> ![[InsertionObsidian_annoté 2.png]]
+
+#### III.3.2. Absurde
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=20&selection=53,0,54,1&color=yellow|IA02 _ Logique Propositionnelle, page 20]]
+> > φ2
+> 
+> ![[InsertionObsidian_annoté 3.png]]
+
+### III.4. Conséquence logique
+
+###### Exemple
+$$
+a \models a \vee b
+$$
+alors $Mod(a) =\{ \{ a,b \} \}, \{ a,\neg b \} \}$ et $Mod(a \vee b) = \{ \{ a,b \}, \{ a, \neg b \}, \{ \neg a, b \} \}$.
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=23&selection=4,0,4,19&color=yellow|IA02 _ Logique Propositionnelle, page 23]]
+> > Équivalence logique
+> 
+> $$
+Mod(\varphi_{1}) = Mod(\varphi_{2})
+$$
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=22&selection=2,0,2,13&color=yellow|IA02 _ Logique Propositionnelle, page 22]]
+> > Par extension
+> 
+> $$
+\forall 1 \leqslant i \leqslant n, Mod(\varphi_{i}) \subset Mod(\Psi)
+$$
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=23&selection=10,1,10,27&color=yellow|IA02 _ Logique Propositionnelle, page 23]]
+> > st une écriture raccourcie
+> 
+> $$
+\Omega = Mod(\top) \subset Mod(\varphi) \subset \Omega
+$$
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=23&selection=24,0,30,12&color=yellow|IA02 _ Logique Propositionnelle, page 23]]
+> > Avant de chercher à déduire quoi que se soit d'un ensemble de formules, il faut toujours vérier préalablement leur cohérence (c.-à-d. prouver l'existence d'au moins un modèle) !
+> 
+> C'est comme une récurrence : il faut l'initialisation !
+
+### Théorèmes
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=25&selection=8,0,8,12&color=yellow|IA02 _ Logique Propositionnelle, page 25]]
+> > Corollaire 3
+> 
+> Raisonnement par l'absurde
+
+### Wumpus
+
+###### Avertissement
+**Utiliser l'implication en priorité pour les représentations logiques**
+
 
