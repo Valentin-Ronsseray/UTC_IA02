@@ -34,6 +34,9 @@
 			- [[#III.3.2. Absurde|III.3.2. Absurde]]
 		- [[#III.4. Conséquence logique|III.4. Conséquence logique]]
 					- [[#Exemple|Exemple]]
+		- [[#III.5. Théorèmes|III.5. Théorèmes]]
+		- [[#III.6. Wumpus|III.6. Wumpus]]
+					- [[#Avertissement|Avertissement]]
 
 ## I. Introduction
 
@@ -203,10 +206,14 @@ Une formule propositionnelle $\varphi$ est dite :
 ###### Exemple
 Les formules suivantes sont des tautologies
 - $p \to p$
-- $p \vee \neg P$
+- $p \vee \neg p$
 - $\neg (\neg p \wedge p)$
 - $p \wedge q \to q$
 
+> [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=19&selection=32,0,36,33|IA02 _ Logique Propositionnelle, page 19]]
+> > satisable ssi elle n'est pas contradictoire
+> 
+> ssi $\exists \omega \in \Omega, \omega \models \varphi$
 
 ### III.3. Calculer la validité d'une formule
 
@@ -226,45 +233,56 @@ Les formules suivantes sont des tautologies
 ### III.4. Conséquence logique
 
 ###### Exemple
-$$
-a \models a \vee b
-$$
-alors $Mod(a) =\{ \{ a,b \} \}, \{ a,\neg b \} \}$ et $Mod(a \vee b) = \{ \{ a,b \}, \{ a, \neg b \}, \{ \neg a, b \} \}$.
 
-> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=23&selection=4,0,4,19&color=yellow|IA02 _ Logique Propositionnelle, page 23]]
+
+> [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=22&selection=45,0,53,1|IA02 _ Logique Propositionnelle, page 22]]
+> > a ⊨ a ∨ b
+> 
+> $\text{Mod}(a) =\{ \{ a,b \} \}, \{ a,\neg b \} \}$ et $\text{Mod}(a \vee b) = \{ \{ a,b \}, \{ a, \neg b \}, \{ \neg a, b \} \}$.
+
+> [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=22&selection=55,0,66,1|IA02 _ Logique Propositionnelle, page 22]]
+> > a, a → b ⊨ b
+> 
+> $\text{Mod}(a) = \{ \{ a, b \}, \{ a, \neg b \} \}$, $\text{Mod}(a \to b) = \{ \{ a,b \}, \{ \neg a, \neg b \}, \{ \neg a, b \} \}$ et $\text{Mod}(b) = \{ \{ a,b \}, \{ \neg a,b \} \}$
+
+> [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=22&selection=68,0,78,1|IA02 _ Logique Propositionnelle, page 22]]
+> > ⊥⊨ a → b ∨ c
+> 
+> $$ \text{Mod}(\bot) = \emptyset \subset \text{Mod}(a \to b \vee c)$$
+
+> [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=22&selection=2,0,3,0|IA02 _ Logique Propositionnelle, page 22]]
+> > Par extension :
+>
+> $$\bigcap_{i=1}^{n} \text{Mod}(\varphi_{i}) \subset \text{Mod}(\Psi) $$
+
+> [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=23&selection=4,0,4,19|IA02 _ Logique Propositionnelle, page 23]]
 > > Équivalence logique
 > 
-> $$
-Mod(\varphi_{1}) = Mod(\varphi_{2})
-$$
+> $$ \text{Mod}(\varphi_{1}) = \text{Mod}(\varphi_{2}) $$
 
-> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=22&selection=2,0,2,13&color=yellow|IA02 _ Logique Propositionnelle, page 22]]
-> > Par extension
-> 
-> $$
-\forall 1 \leqslant i \leqslant n, Mod(\varphi_{i}) \subset Mod(\Psi)
-$$
-
-> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=23&selection=10,1,10,27&color=yellow|IA02 _ Logique Propositionnelle, page 23]]
-> > st une écriture raccourcie
-> 
-> $$
-\Omega = Mod(\top) \subset Mod(\varphi) \subset \Omega
-$$
-
-> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=23&selection=24,0,30,12&color=yellow|IA02 _ Logique Propositionnelle, page 23]]
+> [!PDF] [[IA02 _ Logique Propositionnelle.pdf#page=23&selection=24,0,30,12&color=yellow|IA02 _ Logique Propositionnelle, page 23]]
 > > Avant de chercher à déduire quoi que se soit d'un ensemble de formules, il faut toujours vérier préalablement leur cohérence (c.-à-d. prouver l'existence d'au moins un modèle) !
 > 
 > C'est comme une récurrence : il faut l'initialisation !
 
-### Théorèmes
+### III.5. Théorèmes
 
-> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=25&selection=8,0,8,12&color=yellow|IA02 _ Logique Propositionnelle, page 25]]
+> [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=24&selection=4,0,4,25|IA02 _ Logique Propositionnelle, page 24]]
+> > Théorème de la déduction 
+> 
+> ###### Démonstration
+> $$ \begin{align}
+\varphi_{1}, \dots, \varphi_{n-1} \models \varphi_{n} \to \psi & \iff & \bigcap_{i=1}^{n-1} \text{Mod}(\varphi_{i}) \subset \text{Mod}(\varphi_{n} \to \psi)  \\
+ & \iff & 
+\end{align} $$
+
+
+> [!PDF] [[IA02 _ Logique Propositionnelle.pdf#page=25&selection=8,0,8,12&color=yellow|IA02 _ Logique Propositionnelle, page 25]]
 > > Corollaire 3
 > 
 > Raisonnement par l'absurde
 
-### Wumpus
+### III.6. Wumpus
 
 ###### Avertissement
 **Utiliser l'implication en priorité pour les représentations logiques**
