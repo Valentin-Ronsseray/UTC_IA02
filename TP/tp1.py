@@ -135,8 +135,10 @@ print("")
 def is_cons(f1: str, f2: str, voc: List[str]) -> bool :
     L1 = gen_interpretations(voc)
     n1 = len(L1)
+    affiche(f1, voc)
     L2 = gen_interpretations(voc)
     n2 = len(L2)
+    affiche(f2, voc)
     i = 0
     while i < n1 :
         if not(valuate(f1, L1[i])) :
@@ -154,4 +156,4 @@ def is_cons(f1: str, f2: str, voc: List[str]) -> bool :
             return False
     return True
 
-print(is_cons("A", "A or B", ["A", "B"]))
+print(is_cons("A and B", "A or B", ["A", "B"]))
