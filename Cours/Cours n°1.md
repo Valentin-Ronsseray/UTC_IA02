@@ -37,6 +37,7 @@
 		- [[#III.5. Théorèmes|III.5. Théorèmes]]
 		- [[#III.6. Wumpus|III.6. Wumpus]]
 					- [[#Avertissement|Avertissement]]
+	- [[#IV. Clauses et calcul propositionnel|IV. Clauses et calcul propositionnel]]
 
 ## I. Introduction
 
@@ -115,6 +116,10 @@ Argument fallacieux: l'ISF engendre l'évasion fiscale, donc il suffit de suppri
 
 ##### Définition (*formules propositionnelles bien formées*)
 
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=10&selection=45,0,57,19&color=yellow|IA02 _ Logique Propositionnelle, page 10]]
+> > Si et sont des formules alors , , et sont des formules ;
+> 
+> Les parenthèses sont très importantes
 ### II.2. Priorité des opérateur
 
 $$
@@ -253,12 +258,12 @@ Les formules suivantes sont des tautologies
 > [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=22&selection=2,0,3,0|IA02 _ Logique Propositionnelle, page 22]]
 > > Par extension :
 >
-> $$\bigcap_{i=1}^{n} \text{Mod}(\varphi_{i}) \subset \text{Mod}(\Psi) $$
+> $$\bigcap_{i=1}^{n} \text{Mod}(\varphi_{i}) \subset \text{Mod}(\psi) $$
 
 > [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=23&selection=4,0,4,19|IA02 _ Logique Propositionnelle, page 23]]
 > > Équivalence logique
 > 
-> $$ \text{Mod}(\varphi_{1}) = \text{Mod}(\varphi_{2}) $$
+> $$\varphi_{1} \equiv \varphi_{2} \iff \text{Mod}(\varphi_{1}) = \text{Mod}(\varphi_{2}) $$
 
 > [!PDF] [[IA02 _ Logique Propositionnelle.pdf#page=23&selection=24,0,30,12&color=yellow|IA02 _ Logique Propositionnelle, page 23]]
 > > Avant de chercher à déduire quoi que se soit d'un ensemble de formules, il faut toujours vérier préalablement leur cohérence (c.-à-d. prouver l'existence d'au moins un modèle) !
@@ -269,13 +274,77 @@ Les formules suivantes sont des tautologies
 
 > [!PDF|] [[IA02 _ Logique Propositionnelle.pdf#page=24&selection=4,0,4,25|IA02 _ Logique Propositionnelle, page 24]]
 > > Théorème de la déduction 
-> 
+>  
 > ###### Démonstration
-> $$ \begin{align}
-\varphi_{1}, \dots, \varphi_{n-1} \models \varphi_{n} \to \psi & \iff & \bigcap_{i=1}^{n-1} \text{Mod}(\varphi_{i}) \subset \text{Mod}(\varphi_{n} \to \psi)  \\
- & \iff & 
-\end{align} $$
+$\implies$) Supposons que
+> $$
+> \varphi_{1}, \dots, \varphi_{n} \models \psi
+> $$
+> Alors
+> $$
+> \bigcap_{i=1}^{n} \mathrm{Mod}(\varphi_{i}) \subset \mathrm{Mod}(\psi)
+> $$
+> D'où
+> $$
+> \left( \bigcap_{i=1}^{n} \mathrm{Mod}(\varphi_{i}) \right) \cup \mathrm{Mod}(\varphi_{n})^{C}\subset \mathrm{Mod}(\psi) \cup \mathrm{Mod}(\varphi_{n})^{C}
+> $$
+> Ainsi par distributivité de $\cup$ sur $\cap$,
+> $$
+> \left( \bigcap_{i=1}^{n-1} \mathrm{Mod}(\varphi_{i}) \right) \cup \mathrm{Mod}(\varphi_{n})^{C}\subset \mathrm{Mod}(\psi) \cup \mathrm{Mod}(\varphi_{n})^{C}
+> $$
+> D'une part
+> $$
+> \bigcap_{i=1}^{n-1} \mathrm{Mod}(\varphi_{i}) \subset \left( \bigcap_{i=1}^{n-1} \mathrm{Mod}(\varphi_{i}) \right) \cup \mathrm{Mod}(\varphi_{n})^{C}
+> $$
+> D'autre part, on observe que
+> $$
+> \mathrm{Mod}(\psi) \cup \mathrm{Mod}(\varphi_{n})^{C} = \mathrm{Mod}(\varphi_{n} \to \psi)
+> $$
+> (il s'agit bien du complémentaire de $\mathrm{Mod}(\varphi_{n}) \cap \mathrm{Mod}(\psi)^{C}$.)
+> 
+> Par conséquent
+> $$
+> \bigcap_{i=1}^{n-1}\mathrm{Mod}(\varphi_{i}) \subset \mathrm{Mod}(\varphi_{n} \to \psi)
+> $$
+> 
+> i.e
+> $$
+> \varphi_{1},\dots,\varphi_{n-1} \models \varphi_{n} \to \psi
+> $$
+> 
+> $\Longleftarrow$ ) Supposons que
+> $$
+> \varphi_{1},\dots,\varphi_{n-1} \models \varphi_{n} \to \psi
+> $$
+> Alors
+> $$
+> \bigcap_{i=1}^{n-1}\mathrm{Mod}(\varphi_{i}) \subset \mathrm{Mod}(\varphi_{n} \to \psi)
+> $$
+> que l'on peut écrire
+> $$
+> \bigcap_{i=1}^{n-1}\mathrm{Mod}(\varphi_{i}) \subset \mathrm{Mod}(\psi) \cup \mathrm{Mod}(\varphi_{n})^{C}
+> $$
+> On a alors
+> $$
+> \left( \bigcap_{i=1}^{n-1}\mathrm{Mod}(\varphi_{i}) \right) \cap \mathrm{Mod}(\varphi_{n}) \subset (\mathrm{Mod}(\psi) \cup \mathrm{Mod}(\varphi_{n})^{C}) \cap \mathrm{Mod}(\varphi_{n})
+> $$
+> D'où par distribution de $\cap$ sur $\cup$ et réécriture
+> $$
+> \bigcap_{i=1}^{n}\mathrm{Mod}(\varphi_{i}) \subset \mathrm{Mod}(\psi ) \cap \mathrm{Mod}(\varphi_{n})
+> $$
+> Or on a déjà $\displaystyle \bigcap_{i=1}^{n}\mathrm{Mod}(\varphi_{i}) \subset \mathrm{Mod}(\varphi_{n})$, et donc
+> $$
+> \bigcap_{i=1}^{n}\mathrm{Mod}(\varphi_{i}) \subset \mathrm{Mod}(\psi )
+> $$
+> C'est-à-dire
+> $$
+> \varphi_{1}, \dots, \varphi_{n} \models \psi
+> $$
 
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=24&selection=6,0,6,14&color=yellow|IA02 _ Logique Propositionnelle, page 24]]
+> > Corollaire 1 :
+> 
+> Prendre $\varphi_{1}, \dots, \varphi_{n-1} = \top$ et $\varphi_{n} = \varphi$.
 
 > [!PDF] [[IA02 _ Logique Propositionnelle.pdf#page=25&selection=8,0,8,12&color=yellow|IA02 _ Logique Propositionnelle, page 25]]
 > > Corollaire 3
@@ -286,5 +355,59 @@ Les formules suivantes sont des tautologies
 
 ###### Avertissement
 **Utiliser l'implication en priorité pour les représentations logiques**
+
+## IV. Clauses et calcul propositionnel
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=39&selection=7,0,12,32&color=yellow|IA02 _ Logique Propositionnelle, page 39]]
+> >  un cube est une conjonction de littéraux
+> 
+> ##### Définition (*Pureté d'un cube*)
+> On dit qu'un cube est *pur* ssi chaque variable n'apparaît qu'une fois.
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=41&selection=28,0,39,1&color=yellow|IA02 _ Logique Propositionnelle, page 41]]
+> > ¬a ∨ b a → b
+> 
+> On applique Morgan sur $\neg (a \wedge \neg b)$
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=41&selection=128,0,138,0&color=yellow|IA02 _ Logique Propositionnelle, page 41]]
+> > a, b → c, 
+> 
+> A gauche de la flèche, disjonction; à droite, conjonction.
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=44&selection=4,0,4,32&color=yellow|IA02 _ Logique Propositionnelle, page 44]]
+> > Mettre sous forme CNF la formule
+> 
+> ![[InsertionObsidian_annoté 4.png]]
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=46&selection=29,0,39,3&color=yellow|IA02 _ Logique Propositionnelle, page 46]]
+> > R2 B1,1 P1,2 P2,1
+> 
+> ![[InsertionObsidian_annoté 5.png]]
+
+> [!PDF|red] [[IA02 _ Logique Propositionnelle.pdf#page=47&selection=30,0,30,45&color=red|IA02 _ Logique Propositionnelle, page 47]]
+> > Ou encore sous forme de règle de réécriture :
+> 
+> $B$ doit être un **littéral** !
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=47&selection=2,0,2,22&color=yellow|IA02 _ Logique Propositionnelle, page 47]]
+> > Principe de résolution
+> 
+> On peut retrouver le *modus ponens* en introduisant une contradiction
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=48&selection=11,0,11,21&color=yellow|IA02 _ Logique Propositionnelle, page 48]]
+> > Version ensembliste :
+> 
+> On effectue des *modus ponens* successifs.
+
+> [!PDF|note] [[IA02 _ Logique Propositionnelle.pdf#page=49&selection=26,0,26,1&color=note|IA02 _ Logique Propositionnelle, page 49]]
+> > 4
+> 
+> Erreur de définition ?
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=49&selection=2,0,2,46&color=yellow|IA02 _ Logique Propositionnelle, page 49]]
+> > Procédure automatique : Davis et Putnam (1960)
+> 
+> ###### Exemple
+> ![[InsertionObsidian_annoté 6.png]]
 
 

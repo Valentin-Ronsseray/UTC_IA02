@@ -132,28 +132,12 @@ print("")
 # formula += f"A{n+1}"
 # print(estContingente(formula, voc))
 
-def is_cons(f1: str, f2: str, voc: List[str]) -> bool :
-    L1 = gen_interpretations(voc)
-    n1 = len(L1)
-    affiche(f1, voc)
-    L2 = gen_interpretations(voc)
-    n2 = len(L2)
-    affiche(f2, voc)
-    i = 0
-    while i < n1 :
-        if not(valuate(f1, L1[i])) :
-            del(L1[i])
-            n1 += -1
-            i += 1
-    i = 0
-    while i < n2 :
-        if not(valuate(f2, L2[i])) :
-            del(L2[i])
-            n2 += -1
-            i += 1
-    for inter in L1 :
-        if not(inter in L2) :
-            return False
+def is_cons(f1: str, f2: str, voc: List[str]) -> bool:
+    g = gen_interpretations(voc)
+    for temp in g:
+        if valuate(f1,temp)==True:
+            if valuate(f2,temp)==False:
+                return False
     return True
 
-print(is_cons("A and B", "A or B", ["A", "B"]))
+print(is_cons("A or B", "A or B", ["A", "B"]))
