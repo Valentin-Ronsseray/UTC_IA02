@@ -354,7 +354,7 @@ $\implies$) Supposons que
 ### III.6. Wumpus
 
 ###### Avertissement
-**Utiliser l'implication en priorité pour les représentations logiques**
+**Utiliser l'implication en priorité sur les équivalences pour les représentations logiques**
 
 ## IV. Clauses et calcul propositionnel
 
@@ -410,4 +410,18 @@ $\implies$) Supposons que
 > ###### Exemple
 > ![[InsertionObsidian_annoté 6.png]]
 
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=57&selection=22,0,22,10&color=yellow|IA02 _ Logique Propositionnelle, page 57]]
+> > Exercice :
+> 
+> ![[InsertionObsidian_annoté 7.png]]
+
+> [!PDF|red] [[IA02 _ Logique Propositionnelle.pdf#page=62&selection=4,1,4,31&color=red|IA02 _ Logique Propositionnelle, page 62]]
+> > rouver une conséquence logique
+> 
+> Le $\cup$ est une opération ensembliste et non logique ! ($\cup \not \equiv \vee$) On ajoute une clause à notre FNC.
+
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=69&selection=6,0,6,61&color=yellow|IA02 _ Logique Propositionnelle, page 69]]
+> > Chaque sommet ne peut être colorié qu'avec une seule couleur 
+> 
+> $\neg S1R \to \neg S1G \wedge \neg S1B \equiv S1R \vee S1G \vee S1B$
 
