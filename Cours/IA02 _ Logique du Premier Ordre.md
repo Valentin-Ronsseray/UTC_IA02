@@ -62,7 +62,7 @@
 > [!PDF|yellow] [[IA02 _ Logique du Premier Ordre.pdf#page=19&selection=10,0,10,43&color=yellow|IA02 _ Logique du Premier Ordre, page 19]]
 > > C : Certains étudiants n’ont pas de voiture
 > 
-> $\Big(\forall x \quad \text{étudiant} \wedge \big(\forall y \quad \text{voiture}(y) \to \neg \text{possède}(x,y)\big)\Big)$
+> $\Big(\forall x \quad \text{étudiant}(x) \wedge \big(\forall y \quad \text{voiture}(y) \to \neg \text{possède}(x,y)\big)\Big)$
 > ce qui équivaut à
 > $\Big(\exists x \quad \text{étudiant}(x) \wedge \neg\big(\exists y \quad \text{voiture}(y) \wedge \text{possède}(x,y)\big)\Big)$
 
@@ -81,3 +81,7 @@
 > 
 > ![[InsertionObsidian_annoté 9.png]]
 
+> [!PDF|yellow] [[IA02 _ Logique du Premier Ordre.pdf#page=60&selection=4,0,4,7&color=yellow|IA02 _ Logique du Premier Ordre, page 60]]
+> > Exemple
+> 
+> ###### Note manuscrite
