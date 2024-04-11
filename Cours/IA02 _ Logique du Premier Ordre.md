@@ -23,9 +23,19 @@
 > 
 > Avec les parenthèses : $(\forall x (\exists y \quad aime(x,y)))$.
 
+> [!PDF|red] [[IA02 _ Logique du Premier Ordre.pdf#page=7&selection=18,0,26,1&color=red|IA02 _ Logique du Premier Ordre, page 7]]
+> > ∀p∃x p(x)
+> 
+> Interdit en logique du premier ordre.
+
+
 ## II. Le language
 
 ### II.1. Les briques de base
+> [!PDF|yellow] [[IA02 _ Logique du Premier Ordre.pdf#page=8&selection=2,0,2,19&color=yellow|IA02 _ Logique du Premier Ordre, page 8]]
+> > Les briques de base
+> 
+> On travaille ici avec des ensembles finis.
 
 > [!PDF|yellow] [[IA02 _ Logique du Premier Ordre.pdf#page=8&selection=40,0,40,62&color=yellow|IA02 _ Logique du Premier Ordre, page 8]]
 > > les constantes peuvent être vues comme des fonctions d'arité 0
@@ -54,6 +64,17 @@
 
 ## III. Théorie des modèles
 
+> [!PDF|important] [[IA02 _ Logique du Premier Ordre.pdf#page=17&selection=2,0,4,26&color=important|IA02 _ Logique du Premier Ordre, page 17]]
+> > Définition d'un interprétation
+>  
+> Une interprétation $I$ est un triplet $(D,I_v,I_c)$ avec :
+> - $D$ le domaine d'interprétation
+> - $I_v$ une fonction qui associe à toute variable libre une valeur de $D$
+> - $I_c$ une fonction qui associe :
+> 	- À toute constante une valeur de $D$
+> 	- À toute constante fonctionnelle $f_n$ une fonction $I_c(f_n)$ de $D^{n}$ dans $D$
+> 	- À toute constante prédicative $p_m$ une fonction $I_c(p_m)$ de $D^{m}$ dans $\{V,F\}$
+
 > [!PDF|yellow] [[IA02 _ Logique du Premier Ordre.pdf#page=19&selection=8,0,8,38&color=yellow|IA02 _ Logique du Premier Ordre, page 19]]
 > > B : Certains étudiants ont une voiture
 > 
@@ -75,6 +96,11 @@
 > > D = {a, b}
 > 
 > $a$ est une voiture et $b$ est un étudiant
+
+> [!PDF|yellow] [[IA02 _ Logique du Premier Ordre.pdf#page=32&selection=6,0,6,5&color=yellow|IA02 _ Logique du Premier Ordre, page 32]]
+> > close
+> 
+> Pas de variable libre.
 
 > [!PDF|yellow] [[IA02 _ Logique du Premier Ordre.pdf#page=38&selection=0,7,25,2&color=yellow|IA02 _ Logique du Premier Ordre, page 38]]
 > >  ((∀x p(x)) ∧ (∃y q(y))) → (∃y p(y) ∧ q(y))
