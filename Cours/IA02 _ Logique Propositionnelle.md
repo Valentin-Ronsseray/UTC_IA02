@@ -168,6 +168,11 @@ Une *interprétation* $\omega$ est une application de $V_{S}$ dans $\{ V,S \}$ q
 - Si $|V_{S}| = n$, alors il y a $2^{n}$ interprétations.
 ![[InsertionObsidian_annoté.png]]
 
+> [!PDF|yellow] [[IA02 _ Logique Propositionnelle.pdf#page=15&selection=52,0,52,1&color=yellow|IA02 _ Logique Propositionnelle, page 15]]
+> > Ω
+> 
+> $\Omega = \{ V,F \}^{V_{s}}$
+
 ### III.2. Valuation
 
 ##### Définition (*valuation*)
